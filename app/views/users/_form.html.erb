@@ -1,0 +1,12 @@
+<%= form_for @user do |f| %>
+    <%= f.label "Email" %>
+    <%= f.text_field :email %><br>
+    <%= f.label "Password" %>
+    <%= f.text_field :password %><br>
+    <%= f.label "Nickname" %>
+    <%= f.text_field :nickname %><br>
+    <%= f.label "Choose your profile pic." %>
+    <%= f.file_field :profile_pic_url %><br>
+
+    <%= f.submit "Create" %>
+<% end %>

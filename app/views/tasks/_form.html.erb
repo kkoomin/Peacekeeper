@@ -1,0 +1,16 @@
+<%= form_for @task do |f| %>
+    <%= f.label "name" %>
+    <%= f.text_field :name %><br>
+    <%= f.label "description" %>
+    <%= f.text_area :description %><br>
+    <%= f.label "status" %>
+    <%= f.text_field :status %><br>
+    <%= f.label "deadline" %>
+    <%= f.text_field :deadline %><br>
+    <%= f.label "pinned" %>
+    <%= f.text_field :pinned %><br>
+    <%= f.label "user_id" %>
+    <%= f.text_field :user_id %><br>
+    
+    <%= f.submit "Create" %>
+<% end %>
