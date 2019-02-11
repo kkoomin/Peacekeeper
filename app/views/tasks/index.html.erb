@@ -1,7 +1,7 @@
 <ul>
     <% @tasks.each do |task| %>
         <li>
-        <%= task.name %>
+        <%= link_to task.name, task_path(task) %>
         <%= task.status %>
         <%= button_to "Complete", toggle_status_path(task) %>
         </li>

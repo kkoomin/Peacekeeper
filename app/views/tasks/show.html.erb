@@ -1,12 +1,13 @@
 <h1> <%= @task.name %> </h1>
 
-<%= @task.description %><br>
-<%= @task.status %><br>
-<%= @task.deadline %><br>
-<%= @task.user.nickname %><br>
-<%= @task.pinned %><br>
-<%= @task.completer %><br>
-<%= @task.claimer %><br>
+
+Description:    <%= @task.description %><br>
+Status:    <%= @task.status %><br>
+Deadline:    <%= @task.deadline %><br>
+User Name:    <%= @task.user.nickname %><br>
+Pinned to top:    <%= @task.pinned %><br>
+Completed by:    <%= @task.completer %><br>
+Claimed by:    <%= @task.claimer %><br>
 <br>
 ----------------------------
 <br>
