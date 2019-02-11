@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :comments
+  
   resources :users
+
   resources :tasks
+  post '/tasks/:id/toggle_status', to: "tasks#toggle_status", as: "toggle_status"
   
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"

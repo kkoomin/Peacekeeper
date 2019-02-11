@@ -3,6 +3,7 @@
         <li>
         <%= task.name %>
         <%= task.status %>
+        <%= button_to "Complete", toggle_status_path(task) %>
         </li>
     <% end %>
 </ul>
