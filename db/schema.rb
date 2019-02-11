@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_112857) do
+ActiveRecord::Schema.define(version: 2019_02_11_143014) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "task_id"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_112857) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "status"
+    t.boolean "status", default: false
     t.datetime "deadline"
     t.boolean "pinned"
     t.integer "claimer"
