@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
     before_action :find_task, only: [:show, :edit, :update, :toggle_status, :destroy]
+    before_action :require_login
 
     def index
         @tasks = Task.all
@@ -29,6 +30,11 @@ class TasksController < ApplicationController
     def toggle_status
         @task.toggle!(:status)
         redirect_to tasks_path
+    end
+
+    def toggle_pinned
+        @task.toggle!(:pinned)
+        redirect_to task_path(@task)
     end
 
     def destroy
