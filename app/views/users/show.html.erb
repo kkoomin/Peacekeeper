@@ -1,6 +1,7 @@
 <h1> This is you </h1>
 
 <%= @user.email %><br>
-<%= @user.password %><br>
 <%= @user.nickname %><br>
 <%= @user.profile_pic_url %><br>
+
+<%= button_to "Logout", logout_path, method: :post %>

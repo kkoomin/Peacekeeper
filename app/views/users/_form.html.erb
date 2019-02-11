@@ -2,7 +2,9 @@
     <%= f.label "Email" %>
     <%= f.text_field :email %><br>
     <%= f.label "Password" %>
-    <%= f.text_field :password %><br>
+    <%= f.password_field :password %><br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %><br>
     <%= f.label "Nickname" %>
     <%= f.text_field :nickname %><br>
     <%= f.label "Choose your profile pic." %>
