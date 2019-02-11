@@ -1,21 +1,11 @@
-
-
 <h1> <%= @task.name %> </h1>
 
 <%= @task.description %><br>
 <%= @task.status %><br>
 <%= @task.deadline %><br>
 <%= @task.user.nickname %><br>
-<%= @task.pinned %>
+<%= @task.pinned %><br>
 <%= @task.completer %><br>
 <%= @task.claimer %><br>
 
-#comments
 
-#add comments
-<%= form_for @comment do |f| %>
-    <%= f.label "content" %>
-    <%= f.text_field :contents %><br>
-    
-    <%= f.submit "Create" %>
-<% end %>
