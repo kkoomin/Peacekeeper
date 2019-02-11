@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :find_user, only: [:show, :edit, :destroy]
+    before_action :find_task, only: [:show, :edit, :destroy]
 
     def index
         @tasks = Task.all
@@ -10,14 +10,15 @@ class TasksController < ApplicationController
 
     def new
         @task = Task.new
-        @status_list = ["uncompleted", "claimed", "completed"]
     end
 
     def create
         @task = Task.create(task_params)
+        @task.user_id = current_user.id
+        @task.save
         redirect_to task_path(@task)
     end
-
+    
     def edit
         @task.update(task_params)
     end
@@ -30,10 +31,10 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:name, :description, :status, :deadline, :pinned, :user_id)
+        params.require(:task).permit(:name, :description, :status, :deadline, :pinned)
     end
 
     def find_task
-        @task = task.find(params[:id])
+        @task = Task.find(params[:id])
     end
 end
