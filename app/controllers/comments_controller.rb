@@ -9,14 +9,15 @@ class CommentsController < ApplicationController
     end
 
     def new
-        @comment = Comment.new
+        #@comment = Comment.new
     end
 
     def create
         @comment = Comment.create(comment_params)
         @comment.user_id = current_user.id
         @comment.save
-        redirect_to comment_path(@comment)
+        @task = Task.find(@comment.task_id)
+        redirect_to task_path(@task)
     end
 
     def edit
@@ -31,7 +32,8 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:content)
+    
+        params.require(:comment).permit(:content, :task_id)
     end
 
     def find_comment

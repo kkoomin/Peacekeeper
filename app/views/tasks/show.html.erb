@@ -9,13 +9,19 @@
 <%= @task.pinned %>
 <%= @task.completer %><br>
 <%= @task.claimer %><br>
+<br>
+----------------------------
+<br>
 
-#comments
+<% @task.comments.each do |comment|%><br>
+<%= "#{comment.content} - #{comment.user.nickname}" %><br>
+<% end %>
+<br>
+<br>
 
-#add comments
-<%= form_for @comment do |f| %>
-    <%= f.label "content" %>
-    <%= f.text_field :contents %><br>
-    
-    <%= f.submit "Create" %>
+<%= form_tag ({controller: 'comments', action: 'create', method: 'post'}) do %>
+    <%= hidden_field_tag 'comment[task_id]', @task.id %><br> 
+    <%= label_tag "Write you comment here:" %>
+    <%= text_area_tag 'comment[content]' %><br> 
+    <%= submit_tag "Create" %>
 <% end %>
