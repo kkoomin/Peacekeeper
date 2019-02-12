@@ -1,6 +1,8 @@
-<ul>
+
+
+<ul class="collection">
     <% @tasks.each do |task| %>
-        <li>
+        <li class="collection-item">
         <%= link_to task.name, task_path(task) %>
         <%= task.status_description %>
         <%= button_to "Claim", toggle_claim_path(task) %>
