@@ -1,13 +1,18 @@
 <%= form_for @user do |f| %>
-    <%= f.label "Email" %>
-    <%= f.text_field :email %><br>
-    <%= f.label "Password" %>
-    <%= f.password_field :password %><br>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
-    <%= f.label "Nickname" %>
-    <%= f.text_field :nickname %><br>
-    <%= f.label "Choose your profile pic." %>
+ 
+    <%= f.label "Email" %><br>
+    <%= f.text_field :email %>
+ <%= show_errors(@user, :email) %><br>
+    <%= f.label "Password" %><br>
+    <%= f.password_field :password %>
+ <%= show_errors(@user, :password) %><br>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+ <%= show_errors(@user, :password_confirmation) %><br>
+    <%= f.label "Nickname" %><br>
+    <%= f.text_field :nickname %>
+ <%= show_errors(@user, :nickname) %><br>
+    <%= f.label "Choose your profile pic." %><br>
     <%= f.file_field :profile_pic_url %><br>
 
     <%= f.submit "Create" %>

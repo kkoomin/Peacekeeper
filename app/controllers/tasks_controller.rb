@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :find_task, only: [:show, :edit, :update, :toggle_status, :destroy]
-    before_action :require_login
+    before_action :authorized? 
 
     def index
         @tasks = Task.all
