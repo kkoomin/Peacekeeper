@@ -1,0 +1,10 @@
+<ul>
+    <% @posts.each do |post| %>
+        <li>
+        <%# link_to post.content, post_path(post) %>
+        <%= post.content %>
+        </li>
+    <% end %>
+</ul>
+
+<%= render 'form' %>

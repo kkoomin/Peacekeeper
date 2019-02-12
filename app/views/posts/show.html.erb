@@ -1,0 +1,26 @@
+<h1> <%= @task.name %> </h1>
+
+
+Description:    <%= @task.description %><br>
+Status:    <%= @task.status %><br>
+Deadline:    <%= @task.deadline %><br>
+User Name:    <%= @task.user.nickname %><br>
+Pinned to top:    <%= @task.pinned %><br>
+Completed by:    <%= @task.completer %><br>
+Claimed by:    <%= @task.claimer %><br>
+<br>
+----------------------------
+<br>
+
+<% @task.comments.each do |comment|%><br>
+<%= "#{comment.content} - #{comment.user.nickname}" %><br>
+<% end %>
+<br>
+<br>
+
+<%= form_tag ({controller: 'comments', action: 'create', method: 'post'}) do %>
+    <%= hidden_field_tag 'comment[task_id]', @task.id %><br> 
+    <%= label_tag "Write you comment here:" %>
+    <%= text_area_tag 'comment[content]' %><br> 
+    <%= submit_tag "Create" %>
+<% end %>

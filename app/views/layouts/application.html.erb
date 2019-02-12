@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Module2ProjectPeacekeeper</title>
+    <title>Project Peacekeeper</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,13 @@
   </head>
 
   <body>
-    <%# ApplicationController.logged_in %>
+  <%= current_user.id %>
+    <% if flash[:errors] %>
+		<% flash[:errors].each do |e| %>
+			<p style="color: red"> <%= e %> </p>
+		<% end %>
+	<% end %>
+
     <%= yield %>
   </body>
 </html>
