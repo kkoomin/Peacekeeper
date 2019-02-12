@@ -1,7 +1,12 @@
-<h1> This is you </h1>
+<h1> <%=@user.nickname %>'s Profile </h1>
 
-<%= @user.email %><br>
-<%= @user.nickname %><br>
+<p>
 <%= @user.profile_pic_url %><br>
 
+Email: <%= @user.email %><br>
+Nickname: <%= @user.nickname %><br>
+</p>
+
+<%= button_to "Edit", edit_user_path, method: :get %>
 <%= button_to "Logout", logout_path, method: :post %>
+<%= button_to "Delete your account", user_path, method: :delete %>

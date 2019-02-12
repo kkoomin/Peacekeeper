@@ -1,2 +1,9 @@
 <h1>Dice Game</h1>
-<h3>Choose the number of Participants</h3>
+
+<h3>Choose the number of players</h3>
+
+    <%= form_tag ({controller: 'dices', action: "create", method: 'post'}) do %>
+        <%= number_field_tag 'num_players' %>
+        <%= submit_tag "Next" %>
+    <% end %>
+

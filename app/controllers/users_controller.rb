@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def show
         authorized_for(params[:id])
-         @user = User.find(params[:id])
+        @user = User.find(params[:id])
     end
 
     def new
@@ -18,13 +18,11 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.valid?
             @user.save
-            session[:user_id] = user.id
+            session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
             render :new
         end
-
-        
     end
 
     def edit
@@ -37,7 +35,7 @@ class UsersController < ApplicationController
     
     def destroy
         @user.destroy
-        
+        redirect_to login_path
     end
 
     def upload

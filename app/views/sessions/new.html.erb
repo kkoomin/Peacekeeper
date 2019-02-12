@@ -1,11 +1,12 @@
-<%= form_for @user, url: login_path, method: :post do |f| %>
-    <%= f.label "Email" %>
-    <%= f.text_field :email %><br>
+<h1>Peace Keeper</h1>
 
-    <%= f.label "Password" %>
-    <%= f.password_field :password %><br>
+<%= form_for @user, url: login_path, method: :post do |f| %>
+    <%= f.text_field :email, placeholder: "Your Email"%><br>
+
+    <%= f.password_field :password, placeholder: "Your Password" %><br>
 
     <%= f.submit "Login" %>
 <% end %>
 
+<%= button_to "Create New User", new_user_path, method: "get" %>
 

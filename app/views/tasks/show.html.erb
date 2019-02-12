@@ -3,7 +3,7 @@
 
 Description:    <%= @task.description %><br>
 Status:    <%= @task.status %><br>
-Deadline:    <%= @task.deadline %><br>
+Deadline:    <%= @task.deadline.strftime("%d %b, %Y") %><br>
 User Name:    <%= @task.user.nickname %><br>
 Pinned to top:    <%= @task.pinned %><br>
 Completed by:    <%= @task.completer %><br>
@@ -18,4 +18,4 @@ Claimed by:    <%= @task.claimer %><br>
 <br>
 <br>
 
-<%= render 'comments/new' %>
+<%= render 'comments/form' %>
