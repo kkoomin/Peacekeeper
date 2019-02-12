@@ -18,3 +18,10 @@ end
     <%= f.text_area :content %>
     <%= f.submit "Submit" %>
 <% end %>
+
+
+<%= form_tag ({controller: 'dices', action: 'new', method: 'get' do %>
+    <%= label_tag "Participants" %>
+    <%= number_field_tag '' %>
+    <% submit_tag 'Create' %>
+<% end %>
