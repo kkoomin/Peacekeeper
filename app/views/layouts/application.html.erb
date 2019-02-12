@@ -13,7 +13,7 @@
     <div class="container">
       <% if logged_in? %>
         <span>hello, <%= current_user.nickname %>  <%= current_user.id %></span>
-        <%= link_to "Task", tasks_path, method: "get" %>
+        <%= button_to "Task", tasks_path, method: "get" %>
         <%= link_to "Post", posts_path, method: "get" %>
         <%= link_to "Logout", logout_path, method: "post" %>
         <%= link_to "My account", user_path(current_user.id) %>

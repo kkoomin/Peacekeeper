@@ -5,10 +5,12 @@
         <li class="collection-item">
         <%= link_to task.name, task_path(task) %>
         <%= task.status_description %>
-        <%= button_to "Claim", toggle_claim_path(task) %>
-        <%= button_to "Complete", toggle_status_path(task) %>
+        <%= button_to "Claim", toggle_claim_path(task), class: "waves-effect waves-light btn" %>
+        <%= button_to "Complete", toggle_status_path(task), class: "waves-effect waves-light btn" %>
         </li>
     <% end %>
 </ul>
 
-<%= button_to "Create New Task", new_task_path, method: "get" %>
+<%= button_to "Create New Task", new_task_path, method: "get", class: "btn waves-effect waves-light"%>
+
+
