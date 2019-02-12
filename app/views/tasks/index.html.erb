@@ -3,6 +3,7 @@
         <li>
         <%= link_to task.name, task_path(task) %>
         <%= task.status_description %>
+        <%= button_to "Claim", toggle_claim_path(task) %>
         <%= button_to "Complete", toggle_status_path(task) %>
         </li>
     <% end %>

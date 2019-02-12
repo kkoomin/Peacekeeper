@@ -7,7 +7,7 @@ Deadline:    <%= @task.deadline.strftime("%d %b, %Y") %><br>
 User Name:    <%= @task.user.nickname %><br>
 Pinned to top:    <%= @task.pinned %><br>
 Completed by:    <%= @task.completer %><br>
-Claimed by:    <%= @task.claimer %><br>
+Claimed by:    <%= User.find(@task.claimer).nickname %><br>
 <br>
 ----------------------------
 <br>

@@ -12,6 +12,8 @@
     <%= f.label "Nickname" %><br>
     <%= f.text_field :nickname, placeholder: "Set you nickname" %>
     <%= show_errors(@user, :nickname) %><br>
+    <%= f.label "admin" %><br>
+    <%= f.check_box :admin %> <br>
     <%= f.label "Choose your profile pic." %><br>
     <%= f.file_field :profile_pic_url %><br>
 

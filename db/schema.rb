@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_125916) do
+ActiveRecord::Schema.define(version: 2019_02_12_172853) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "task_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_125916) do
     t.string "profile_pic_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
   end
 
 end

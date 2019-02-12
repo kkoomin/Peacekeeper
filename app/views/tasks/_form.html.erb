@@ -7,6 +7,9 @@
     <%= f.date_select(:deadline, :order => [:day, :month, :year]) %><br>
     <%= f.label "pinned" %><br>
     <%= f.check_box :pinned %> <br>
+    <% if current_user.admin == true %>
+        <%= f.collection_select :claimer, @users, :id, :nickname %>
+    <% end %>
     
     <%= f.submit "Create" %>
 <% end %>

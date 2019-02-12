@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :find_task, only: [:show, :edit, :update, :toggle_status, :destroy]
+    before_action :find_task, only: [:show, :edit, :update, :toggle_status, :toggle_claim, :destroy]
     before_action :authorized? 
 
     def index
@@ -11,6 +11,7 @@ class TasksController < ApplicationController
 
     def new
         @task = Task.new
+        @users = User.all
     end
 
     def create
@@ -21,14 +22,32 @@ class TasksController < ApplicationController
     end
     
     def edit
-        @task.update(task_params)
+        @users = User.all
     end
 
     def update
+        @task.update(task_params)
+        redirect_to task_path(@task)
+    end
+
+    def toggle_claim
+        if @task.claimer == current_user.id
+            @task.claimer = nil
+        else
+            @task.claimer = current_user.id
+        end
+        @task.save
+        redirect_to tasks_path
     end
 
     def toggle_status
         @task.toggle!(:status)
+        if @task.status == false
+            @task.completer = nil
+        else
+            @task.completer = current_user.id
+        end
+        @task.save
         redirect_to tasks_path
     end
 
@@ -45,7 +64,7 @@ class TasksController < ApplicationController
     private
 
     def task_params
-        params.require(:task).permit(:name, :description, :status, :deadline, :pinned)
+        params.require(:task).permit(:name, :description, :status, :deadline, :pinned, :claimer)
     end
 
     def find_task
