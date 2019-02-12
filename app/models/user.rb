@@ -5,9 +5,7 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     validates :email, presence: true
     validates_format_of :email, :with =>/\A[\w\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, on: :create, :message => "must be formatted correctly."
-
     validates :password, presence: true
-    
     validates :nickname, uniqueness: true
     validates :nickname, presence: true
 

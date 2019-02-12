@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :tasks
   post '/tasks/:id/toggle_status', to: "tasks#toggle_status", as: "toggle_status"
   
-  get '/', to: "sessions#new"
+  # root 'session#new'
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#destroy"

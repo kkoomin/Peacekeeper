@@ -11,11 +11,11 @@
 
   <body>
   <%= current_user.id %>
-    <% if flash[:errors] %>
-		<% flash[:errors].each do |e| %>
-			<p style="color: red"> <%= e %> </p>
-		<% end %>
-	<% end %>
+  <% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p style="color: red"> <%= e %> </p>
+<% end %>
+<% end %>
 
     <%= yield %>
   </body>

@@ -18,9 +18,4 @@ Claimed by:    <%= @task.claimer %><br>
 <br>
 <br>
 
-<%= form_tag ({controller: 'comments', action: 'create', method: 'post'}) do %>
-    <%= hidden_field_tag 'comment[task_id]', @task.id %><br> 
-    <%= label_tag "Write you comment here:" %>
-    <%= text_area_tag 'comment[content]' %><br> 
-    <%= submit_tag "Create" %>
-<% end %>
+<%= render 'comments/new' %>
