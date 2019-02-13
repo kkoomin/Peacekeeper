@@ -5,4 +5,17 @@ class Task < ApplicationRecord
     def status_description
         self.status == true ? "Complete" : "Incomplete"
     end
+    
+    def status_description_button_text
+        self.status == true ? 'Set To Incomplete' : 'Mark Complete'
+    end
+
+    def status_description_button_image
+        self.status == true ? 'si-glyph-checked.svg' : 'si-glyph-square-dashed-2.svg'
+    end
 end
+
+
+
+# <i class="glyphicon glyphicon-check"></i>
+# <i class="glyphicon glyphicon-uncheck"></i>
