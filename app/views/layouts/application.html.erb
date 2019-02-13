@@ -1,9 +1,7 @@
   <!DOCTYPE html>
   <html>
     <head>
-      <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     
       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
       <%= stylesheet_link_tag   'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -15,49 +13,58 @@
 
     
   <body>
-
-
-  <div class="container-fluid">
+  
+  <% if logged_in? %>
+  <div class="container-fluid fullscreen">
     <div class="row">
       <div class="col-md-2 menu">
-          <a class="navbar-brand" href="#">Peacekeeper</a>
-        <% if logged_in? %>
+          <a class="navbar-brand" href="/">Peacekeeper</a>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="/tasks">Tasks</a>
+            <a class="nav-link"><%= link_to "Tasks", tasks_path %></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/posts">Posts</a>
+            <a class="nav-link"><%= link_to "Posts", posts_path %></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/dice">Game</a>
+            <a class="nav-link"><%= link_to "Game", index_path %></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user/">Me</a>
+            <a class="nav-link"><%= link_to "Me", user_path(current_user.id)%></a>
           </li>
         </ul>
-      <% end %>
       </div>
+
+
       <div class="col-md-10">
 
-
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-current-user">Hello, <%= current_user.nickname %>!</a>
+        </nav>
+      
+        <div class="content">
         <% if flash[:errors] %>
-        <% flash[:errors].each do |e| %>
-          <p style="color: red"> <%= e %> </p>
+          <% flash[:errors].each do |e| %>
+            <p style="color: red"> <%= e %> </p>
+          <% end %>
         <% end %>
-      <% end %>
-  
-  
-      <%= yield %>
+       <%= yield %>
       </div>
 
     </div>
   </div>
+ 
+  <% else %>
   
+      <% if flash[:errors] %>
+      <% flash[:errors].each do |e| %>
+        <p style="color: red"> <%= e %> </p>
+      <% end %>
+      <% end %>
 
+      <%= yield %>
 
-
-
+  <% end %>
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.bundle.min.js" integrity="sha384-VoPFvGr9GxhDT3n8vqqZ46twP5lgex+raTCfICQy73NLhN7ZqSfCtfSn4mLA2EFA" crossorigin="anonymous"></script> -->
     </body>
   </html>

@@ -1,14 +1,23 @@
-<ul>
-    <% @posts.each do |post| %>
-        <li>
-            <%# link_to post.content, post_path(post) %>
-            <%= post.content %> - <%= post.user.nickname %>
-            <% if post.user = current_user %>
-                <%= link_to "Edit", edit_post_path(post) %>
-                <%= link_to "Delete", post_path(post), method: "delete" %>
-            <% end %>
-        </li>
-    <% end %>
-</ul>
+<div class="container main-content post-index">
+    <div class="card-columns">
+            <%= render 'form' %>
 
-<%= render 'form' %>
+        <% @posts.each do |post| %>
+        <div class="card text-center">
+            <div class="card-body">
+            <h5 class="card-text"><%= post.content %></h5>
+            <p>from. <%= post.user.nickname %></p>
+            </div>
+
+            <div class="card-footer text-muted">
+                    <% if post.user = current_user %>
+                    <%= link_to "Edit", edit_post_path(post) %>
+                    <%= button_to "Delete", post_path(post), method: "delete" %>
+                <% end %>
+            <%= time_ago_in_words(post.updated_at) + " ago" %>
+            </div>
+        </div>
+   
+    <% end %>
+    </div>
+</div>
