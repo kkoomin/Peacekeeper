@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_12_172853) do
+ActiveRecord::Schema.define(version: 2019_02_12_220100) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "task_id"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2019_02_12_172853) do
     t.integer "claps"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "dices", force: :cascade do |t|
+    t.string "title"
+    t.integer "num_of_players", default: 0
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.integer "result", default: 0
+    t.integer "dice_id"
   end
 
   create_table "posts", force: :cascade do |t|

@@ -1,9 +1,0 @@
-<h1> Enter the name </h1>
-
-
-<%= form_tag ({controller: 'dices', action: "roll", method: 'post'}) do %>
-    <% @num_players.times do %>
-        <%= text_field_tag 'player_name' %>
-    <% end %>
-    <%= submit_tag "Player" %>
-<% end %>

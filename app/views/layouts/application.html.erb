@@ -13,6 +13,7 @@
     <div class="container">
       <% if logged_in? %>
         <span>hello, <%= current_user.nickname %>  <%= current_user.id %></span>
+        <%= link_to "Dice", index_path, method: "get" %>
         <%= link_to "Task", tasks_path, method: "get" %>
         <%= link_to "Post", posts_path, method: "get" %>
         <%= link_to "Logout", logout_path, method: "post" %>

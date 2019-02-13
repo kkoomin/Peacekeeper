@@ -1,0 +1,8 @@
+<h3> Results </h3>
+    <% @dice.players.each do |p| %>
+        <%= image_tag "dice-#{p.result}.png" %> <%= p.name %><br>
+    <% end %>
+
+
+
+<%= button_to "Replay?", replay_path, method: 'delete' %>

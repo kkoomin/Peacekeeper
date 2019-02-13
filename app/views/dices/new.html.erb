@@ -1,0 +1,26 @@
+<h1>Enter player name</h1>
+
+<% if @dice.players.count < @dice.num_of_players %>
+    <%= form_tag ({controller: 'players', action: 'create', method: 'post'}) do %>
+        <%= hidden_field_tag 'player[dice_id]', @dice.id %>
+        <%= text_field_tag 'player[name]' %><br>
+        <%= submit_tag "Next" %>
+    <% end %>
+<% end %>
+
+
+<% if @dice.players.count > 0 && @dice.players.count != @dice.num_of_players%>
+    <h3>We are wating..</h3>
+    <% @dice.players.each do |p| %>
+        <li><%= p.name %></li>
+    <% end %>
+<% end %>
+
+<% if @dice.players.count == @dice.num_of_players %>
+    <h3> Ready to roll the dice! </h3>
+    <% @dice.players.each do |p| %>
+        <li><%= p.name %></li>
+    <% end %>
+<%= button_to "Roll the dice", roll_dice_path %>
+<% end %>
+
