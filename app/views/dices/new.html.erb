@@ -1,4 +1,4 @@
-<h1>Enter player name</h1>
+<h1>Enter the name</h1>
 
 <% if @dice.players.count < @dice.num_of_players %>
     <%= form_tag ({controller: 'players', action: 'create', method: 'post'}) do %>

@@ -1,5 +1,7 @@
+<%= image_tag "dice-0.png" %> <br>
 <h1>Dice Game</h1>
 
+<hr>
 <%= form_tag ({controller: "dices", action: "create_new", method: "post"}) do %>
     <%= label_tag "What's this round for?" %>
     <%= text_field_tag "dice[title]" %><br>

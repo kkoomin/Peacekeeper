@@ -1,4 +1,4 @@
-<h3> Results </h3>
+<h3> Results of "<%= @dice.title %>"</h3>
     <% @dice.players.each do |p| %>
         <%= image_tag "dice-#{p.result}.png" %> <%= p.name %><br>
     <% end %>
