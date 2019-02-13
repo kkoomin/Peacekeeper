@@ -11,7 +11,7 @@ class Task < ApplicationRecord
     end
 
     def status_description_button_image
-        self.status == true ? 'si-glyph-checked.svg' : 'si-glyph-square-dashed-2.svg'
+        self.status == true ? 'si-glyph-checked.svg' : 'si-glyph-button-plus.svg'
     end
 end
 
