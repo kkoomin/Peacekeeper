@@ -1,7 +1,7 @@
 <h1> <%=@user.nickname %>'s Profile </h1>
 
 <p>
-<%= @user.profile_pic_url %><br>
+<%= image_tag(@user.image) %><br>
 
 Email: <%= @user.email %><br>
 Nickname: <%= @user.nickname %><br>
