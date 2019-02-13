@@ -1,9 +1,7 @@
 <h1> <%=@user.nickname %>'s Profile </h1>
 
 <p>
-<% if !@user.image = nil %>
 <%= image_tag(@user.image) %><br>
-<% end %>
 
 Email: <%= @user.email %><br>
 Nickname: <%= @user.nickname %><br>

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_02_13_094945) do
+=======
+ActiveRecord::Schema.define(version: 2019_02_13_094854) do
+>>>>>>> 848983d5783a80a3f0f114ecd5cfdb72ace692fc
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
