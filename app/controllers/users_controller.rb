@@ -37,13 +37,6 @@ class UsersController < ApplicationController
         redirect_to login_path
     end
 
-    def upload
-        uploaded_io = params[:user][:profile_pic_url]
-        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
-          file.write(uploaded_io.read)
-        end
-    end
-
     private
 
     def user_params

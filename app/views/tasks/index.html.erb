@@ -2,11 +2,11 @@
 
 <ul class="collection">
     <% @tasks.each do |task| %>
-        <li class="collection-item">
+        <li>
         <%= link_to task.name, task_path(task) %>
         <%= task.status_description %>
-        <%= button_to "Claim", toggle_claim_path(task), class: "waves-effect waves-light btn" %>
-        <%= button_to "Complete", toggle_status_path(task), class: "waves-effect waves-light btn" %>
+        <%= button_to "Claim", toggle_claim_path(task) %>
+        <%= button_to "Complete", toggle_status_path(task) %>
         </li>
     <% end %>
 </ul>

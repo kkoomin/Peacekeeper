@@ -3,7 +3,16 @@
 // $secondary-color: color("green", "base") !default;
 
 
- @import "materialize";
+//  @import "materialize";
 
 
 // @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+
+.bg-light {
+    background-color: #0000ff59!important
+}
+
+
+.menu {
+    background-color: lightgrey;
+}
