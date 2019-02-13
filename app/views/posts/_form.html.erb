@@ -1,9 +1,17 @@
-<%= form_for @post do |f| %>
-    <%= f.label "content" %>
-    <%= f.text_area :content %><br>    
-    <%= f.submit "Create" %>
-<% end %>
-
+<div class="card text-center">
+        <div class="card-header">
+            Write Your Post
+        </div>
+        <div class="card-body">
+            <%= form_for @post do |f| %>
+                <p><%= f.text_area :content %></p>   
+                <a><%= f.submit "Submit", class: "btn btn-primary" %></a>
+            <% end %>
+        </div>
+        <div class="card-footer text-muted">
+            :D
+        </div>
+</div>
 
 
 

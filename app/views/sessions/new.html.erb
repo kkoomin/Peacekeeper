@@ -1,12 +1,27 @@
-<h1>Peace Keeper</h1>
 
-<%= form_for @user, url: login_path, method: :post do |f| %>
-    <%= f.text_field :email, placeholder: "Your Email"%><br>
 
-    <%= f.password_field :password, placeholder: "Your Password" %><br>
+<div class="container form-login">
+    <h1 class="form-login">Peacekeeper</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 
-    <%= f.submit "Login" %>
-<% end %>
+    <%= form_for @user, url: login_path, method: :post do |f| %>
+        <div class="form-group">
+        <label for="exampleInputEmail1"></label></label>
+        <%= f.text_field :email, class: "form-control", id: "exampleInputEmail1", placeholder: "Email"%>
+        <label for="exampleInputPassword1"></label>
+        <%= f.password_field :password, class: "form-control", id: "exampleInputPassword1", placeholder: "Password" %>
+        </div>
 
-<%= button_to "Create New User", new_user_path, method: "get" %>
+        <%= f.submit "Login", class: "btn btn-primary" %>
+    <% end %>
+    
+    <br>
+
+    <div class="create_user_btn">
+        <%= button_to "Create New User", new_user_path, method: "get", class: "btn btn-primary" %>
+    </div>
+</div>
+
+
+
 

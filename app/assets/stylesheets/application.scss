@@ -2,17 +2,55 @@
 // $primary-color: color("blue", "lighten-2") !default;
 // $secondary-color: color("green", "base") !default;
 
+@import 'sessions';
+@import 'posts';
 
-//  @import "materialize";
-
-
-// @import "https://fonts.googleapis.com/icon?family=Material+Icons";
-
-.bg-light {
-    background-color: #0000ff59!important
+html, body {
+    height: 100%;
 }
 
+body {
+    margin: 0;
+}
 
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: auto;
+    background: white; /* Just to visualize the extent */
+    
+}
+.row {
+    height: 100%;
+}
 .menu {
-    background-color: lightgrey;
+    background-color: #125998;
+
 }
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: grey;
+    text-decoration: none;
+}
+
+.col-md-10 {
+    padding: 0;
+}
+
+.content {
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    // max-width: 800px;
+    padding: 30px;
+    margin: auto;
+}
+
+
