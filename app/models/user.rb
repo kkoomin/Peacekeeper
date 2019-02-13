@@ -10,6 +10,7 @@ class User < ApplicationRecord
     validates :nickname, presence: true
 
     has_secure_password
+    has_one_attached :image
 
     def claimed
     end
