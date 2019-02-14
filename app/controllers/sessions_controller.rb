@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
         @last_post = @posts.sort_by{|p| p.updated_at }.last
         @users = User.all
         @most_contributor_id = @tasks.map{|t|t.completer}.max_by{ |i| @tasks.map{|t|t.completer}.count(i)}
-        @most_contributor = User.find(@most_contributor_id)
+        @most_contributor = User.find(@most_contributor_id) if @most_contributor_id
         @contribute_times = @tasks.map{|t|t.completer}.count(@most_contributor_id)
     end
 

@@ -17,37 +17,13 @@
   
   <% if logged_in? %>
   <div class="container-fluid fullscreen">
-    <div class="row">
-      <div class="col-md-2 menu">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a href="/home" class: "nav-link-title">Peacekeeper</a>
-          </li>
-          <li class="nav-item">
-            <br>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Tasks", tasks_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Posts", posts_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Game", index_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Me", user_path(current_user.id), class: "nav-link"%>
-          </li>
-        </ul>
-      </div>
-
-
-  <div class="container-fluid fullscreen">
- 
       <div class="row">
         <div class="col-md-2 menu">
-            <span style="font-size: 4em; margin-left: 19px" text-align="center"><i class="fas fa-dove" style="color:white;"></i></span>
           <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="/home" style="font-size: 4em; margin-left: 30px" text-align="center" class="button-home"><i class="fas fa-dove" style="color:white;"></i></a>
+            </li>
+            <li class="nav-item"><br></li>
             <li class="nav-item">
               <%= link_to "Tasks", tasks_path, class: "nav-link" %>
             </li>
@@ -66,7 +42,6 @@
 
         <nav class="navbar navbar-current-user bg-light">
             <a>Hello, <%= current_user.nickname %>!</a>
-            <%# link_to "Me", user_path(current_user.id) %>
             <%= button_to "Logout", logout_path, method: :post, class: "btn btn-light" %>
         </nav>
       

@@ -14,7 +14,7 @@
             <p>
               <% @tasks.each do |task| %>
                 <% if task.status == false && task.claimer == nil%>
-                <i class="fas fa-check"></i> <%= task.name %> - created <%= time_ago_in_words(task.updated_at) + " ago" %><br>
+                <i class="fas fa-check"></i> <%= task.name %> - created <%= time_ago_in_words(task.created_at) + " ago" %><br>
                 <% end %>
               <% end %>
             </p>
@@ -27,14 +27,24 @@
       </div>
       <div class="col-4">
         <div class="card">
-          <% if @most_contributor_id %>
-          <div class="card-header home-contributor">Top Completer</div>
-          <%= image_tag(@user.image, height: '200', class: 'card-img-top') %> 
-          <div class="card-body home-contributor-body">
-              <h5 class="card-title">🥇 <%= @most_contributor.nickname %> 🥇</h5>
-              <br>
-              <p>Complete the tasks <%= @contribute_times %> times!</p>
-          </div>
+          <% if @most_contributor_id != nil %>
+            <div class="card-header home-contributor">Top Completer</div>
+            <%= image_tag(@user.image, height: '200', class: 'card-img-top') %> 
+            <div class="card-body home-contributor-body">
+                <h5 class="card-title">🥇 <%= @most_contributor.nickname %> 🥇</h5>
+                <br>
+                <p>Complete the tasks <%= @contribute_times %> times!</p>
+            </div>
+          <% else %>
+            <div class="card home-contributor">
+              <img src="crazy-unicorn.jpg" class="card-img-top"> 
+            </div>
+            <div class="card-body home-contributor-body">
+                <h5 class="card-title">Happy Todo List!</h5>
+                <br>
+                <p><a href="/tasks" class="btn btn-outline-danger">I volunteer</a>
+                </p>
+            </div>
           <% end %>
         </div>
       </div>
