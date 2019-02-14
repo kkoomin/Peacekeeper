@@ -15,31 +15,28 @@
   <body>
   
   <% if logged_in? %>
+
   <div class="container-fluid fullscreen">
-    <div class="row">
-      <div class="col-md-2 menu">
-          <a class="navbar-brand" href="/">Peacekeeper</a>
-
-
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <%= link_to "Tasks", tasks_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Posts", posts_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Game", index_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Me", user_path(current_user.id), class: "nav-link"%>
-          </li>
-        </ul>
-      </div>
-
-
+ 
+      <div class="row">
+        <div class="col-md-2 menu">
+            <a class="navbar-brand" href="/">Peacekeeper</a>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <%= link_to "Tasks", tasks_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Posts", posts_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Game", index_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Me", user_path(current_user.id), class: "nav-link"%>
+            </li>
+          </ul>
+        </div>
       <div class="col-md-10">
-
         <nav class="navbar navbar-current-user bg-light">
             <a>Hello, <%= current_user.nickname %>!</a>
         </nav>
@@ -58,6 +55,7 @@
     </div>
     
   </div>
+</div>
  
   <% else %>
   

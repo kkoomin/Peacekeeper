@@ -1,11 +1,16 @@
 <h1> <%=@user.nickname %>'s Profile </h1>
 
-<p>
-<%#= image_tag(@user.image) %><br>
+<% if image_tag(@user.image)%>
+    <%= image_tag(@user.image, height: '300') %>  
+<% else %>
+    <%= image_tag "crazy-unicorn.jpg", height: '300' %>
+<% end %>
+
+<br>
 
 Email: <%= @user.email %><br>
 Nickname: <%= @user.nickname %><br>
-</p>
+
 
 <%= button_to "Edit", edit_user_path, method: :get %>
 <%= button_to "Logout", logout_path, method: :post %>
