@@ -4,6 +4,7 @@
 
 @import 'sessions';
 @import 'posts';
+@import "tasks";
 
 html, body {
     height: 100%;
@@ -27,8 +28,17 @@ body {
     height: 100%;
 }
 .menu {
-    background-color: #125998;
+    background-color:#311B92;
 
+}
+
+.bg-light {
+    background-color: #EDE7F6!important;
+}
+
+.navbar-brand {
+    padding: 50px;
+    margin-right: 0;
 }
 
 a {
@@ -36,7 +46,8 @@ a {
 }
 
 a:hover {
-    color: grey;
+    color: #EDE7F6
+    ;
     text-decoration: none;
 }
 
@@ -49,10 +60,18 @@ a:hover {
     text-align: left;
     width: 100%;
     // max-width: 800px;
-    padding: 30px;
+    padding: 50px;
     margin: auto;
 }
 
+.main-content {
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    // max-width: 800px;
+    padding: 50px;
+    margin: auto;
+    }
 
 .svg.square {
     width: 20px;
@@ -60,4 +79,4 @@ a:hover {
 }
 
 
-@import "tasks"
+

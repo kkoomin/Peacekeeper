@@ -1,7 +1,10 @@
 <div class="container main-content post-index">
+    
+    <h1>Check This Notes, Guys!</h1>
+    <br>
+    
     <div class="card-columns">
             <%= render 'form' %>
-
         <% @posts.each do |post| %>
         <div class="card text-center">
             <div class="card-body">
@@ -10,9 +13,8 @@
             </div>
 
             <div class="card-footer text-muted">
-                    <% if post.user = current_user %>
-                    <%= link_to "Edit", edit_post_path(post) %>
-                    <%= button_to "Delete", post_path(post), method: "delete" %>
+                <% if post.user = current_user %>
+                    <%= link_to '<i class="fas fa-user-edit"></i>'.html_safe, edit_post_path(post) %>
                 <% end %>
             <%= time_ago_in_words(post.updated_at) + " ago" %>
             </div>
