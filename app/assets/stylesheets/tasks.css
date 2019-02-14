@@ -1,13 +1,26 @@
 .outer {
     width:100%;
-    text-align: center;
+    text-align: right;
 }
 .inner
 {
     display: inline-block;
+    text-align: right;
 }
 
 a
 {
     color: black;
+    vertical-align: center;
+    
+}
+
+check-box
+{
+    align-content: right
+}
+
+card-body.hor
+{
+   
 }
