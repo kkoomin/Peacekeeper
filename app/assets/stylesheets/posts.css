@@ -7,3 +7,11 @@
     background: #D1C4E9
     ;
 }
+
+.fa-user-edit {
+    color: grey
+}
+
+.post-writer {
+    margin: 0;
+}

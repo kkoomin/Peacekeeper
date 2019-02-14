@@ -34,12 +34,16 @@ body {
 
 
 .navbar-brand {
-    padding: 50px;
+    color: white;
+    padding: 30px;
     margin-right: 0;
+    font-size: 30px;
 }
 
 .nav-link {
     color: white;
+    padding: .9rem 1rem;
+    font-size: 20px;
 }
 
 a:hover {
@@ -74,6 +78,4 @@ a:hover {
     width: 20px;
     height: 20px;
 }
-
-
 
