@@ -1,8 +1,25 @@
-<h3> Results of "<%= @dice.title %>"</h3>
-    <% @dice.players.each do |p| %>
-        <%= image_tag "dice-#{p.result}.png" %> <%= p.name %><br>
-    <% end %>
+<div class="container main-content post-index">
+    <div class="card text-center shadow-sm p-3 mb-5 bg-white rounded">
+        <div class="card-header title"><%= @dice.title %></div>
 
+        <div class="card-body">
+            <div class="card-deck">
+                <% @dice.players.each do |p| %>
+                <div class="card dice-result" style="width: 18rem;">
+                    <%= image_tag "dice-#{p.result}.png", class: "card-img", style: "opacity: 0.5;"%>            
+                    
+                    <div class="card-body">
+                        <h4 class="card-text"><%= p.name %></h4>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
 
+        <div class="card-footer"><%= button_to "Replay?", replay_path, method: 'delete', class: "btn btn-light" %></div>
+    </div>
 
-<%= button_to "Replay?", replay_path, method: 'delete' %>
+    
+            
+</div>
+

@@ -1,5 +1,5 @@
 <div class="container main-content post-index">
-    <div class="card mb-3" style="max-width: 800px;">
+    <div class="card mb-3 shadow-sm p-3 mb-5 bg-white rounded" style="max-width: 800px;">
         <div class="card-main-image">
             <%= image_tag "dice_main.png", class: "card-img-top", style: 'height: 50%; width: 50%;' %>
         </div>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="form-group">
                     <label for="dice-num-of-players">Choose the number of players or options</label>
-                    <%= f.number_field :num_of_players, class: "form-control", id: "dice-num-of-players" %>
+                    <%= f.number_field :num_of_players, class: "form-control", id: "dice-num-of-players"%>
                 </div>
 
                 <%= f.submit "Next", class: "btn btn-info" %>
