@@ -1,14 +1,11 @@
-<div class="container main-content post-index">
-    
-    <h1>Check This Notes, Guys!</h1>
-    <br>
+<div class="container main-content post-index d-flex pb-3">
     
     <div class="card-columns">
             <%= render 'form' %>
         <% @posts.each do |post| %>
         <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded">
             <div class="card-body">
-            <h5 class="card-text"><%= post.content %></h5>
+            <h5 class="card-text-post"><%= post.content %></h5>
             <p class="post-writer">from. <%= post.user.nickname %></p>
             </div>
 

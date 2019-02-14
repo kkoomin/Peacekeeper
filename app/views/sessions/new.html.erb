@@ -1,9 +1,11 @@
 
-
-<div class="container form-login">
-    <h1><i class="fas fa-dove"></i></h1>
-    <h1 class="form-login">Peacekeeper</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<div class="container-fluid full-screen-login">
+<div class="content form-login text-center">
+    <div class="login-main-text">
+        <h1><i class="fas fa-dove"></i></h1>
+        <h1>Peacekeeper</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+    </div>
 
     <%= form_for @user, url: login_path, method: :post do |f| %>
         <div class="form-group">
@@ -13,14 +15,18 @@
         <%= f.password_field :password, class: "form-control", id: "exampleInputPassword1", placeholder: "Password" %>
         </div>
 
-        <%= f.submit "Login", class: "btn btn-primary" %>
+        <%= f.submit "Login", class: "btn btn-primary btn-block" %>
     <% end %>
     
     <br>
 
     <div class="create_user_btn">
-        <%= button_to "Create New User", new_user_path, method: "get", class: "btn btn-primary" %>
+        <%= button_to "Create New User", new_user_path, method: "get", class: "btn btn-outline-dark btn-sm" %>
     </div>
+
+    <p class="mt-5 mb-3 copy">&copy; 2019</p>
+
+</div>
 </div>
 
 
