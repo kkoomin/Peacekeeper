@@ -13,5 +13,16 @@ Email: <%= @user.email %><br>
 Nickname: <%= @user.nickname %><br>
 
 
-<%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-outline-primary" %>
-<%= button_to "Delete your account", user_path, method: :delete, class: "btn btn-danger" %>
+<div class="card-body">
+    <div class="row">
+        <div >
+        <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-outline-primary mr-2" %>
+        </div>
+        <div>
+        <%= button_to "Delete your account", user_path, method: :delete, class: "btn btn-danger" %>
+        </div>
+    </div>
+</div>
+
+
+
