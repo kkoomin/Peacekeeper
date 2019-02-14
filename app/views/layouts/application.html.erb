@@ -39,6 +39,7 @@
       <div class="col-md-10">
         <nav class="navbar navbar-current-user bg-light">
             <a>Hello, <%= current_user.nickname %>!</a>
+            <%= button_to "Logout", logout_path, method: :post, class: "btn btn-light" %>
         </nav>
       
         <div class="content">

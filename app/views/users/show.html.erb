@@ -1,17 +1,17 @@
-<h1> <%=@user.nickname %>'s Profile </h1>
+<h2> <%=@user.nickname %></h2>
 
-<% if image_tag(@user.image)%>
-    <%= image_tag(@user.image, height: '300') %>  
+<% if @user.image.attached? %>
+    <%= image_tag(@user.image, height: '200', class: 'rounded') %> 
 <% else %>
-    <%= image_tag "crazy-unicorn.jpg", height: '300' %>
+    <%= image_tag "crazy-unicorn.jpg", height: '200' %>
 <% end %>
 
+<br>
 <br>
 
 Email: <%= @user.email %><br>
 Nickname: <%= @user.nickname %><br>
 
 
-<%= button_to "Edit", edit_user_path, method: :get %>
-<%= button_to "Logout", logout_path, method: :post %>
-<%= button_to "Delete your account", user_path, method: :delete %>
+<%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-outline-primary" %>
+<%= button_to "Delete your account", user_path, method: :delete, class: "btn btn-danger" %>

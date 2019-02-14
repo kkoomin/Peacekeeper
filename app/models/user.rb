@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+    has_secure_password
+    has_one_attached :image
+
     has_many :tasks
     has_many :comments
     has_many :posts
@@ -8,9 +11,7 @@ class User < ApplicationRecord
     validates :password, presence: true
     validates :nickname, uniqueness: true
     validates :nickname, presence: true
-
-    has_secure_password
-    has_one_attached :image
+   
 
     def claimed
     end
