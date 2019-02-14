@@ -1,25 +1,42 @@
+<%= link_to "<- Back to tasks", tasks_path %>
+<br>
+    <br>
 <h1> <%= @task.name %> </h1>
 
+<strong>Description:</strong>  <%= @task.description %><br>
+<strong>Status:</strong>    <%= @task.status %><br>
+<strong>Deadline:</strong>    <%= @task.deadline.strftime("%d %b, %Y") %><br>
+<strong>User Name:</strong>    <%= @task.user.nickname %><br>
+<strong>Pinned to top:</strong>    <%= @task.pinned %><br>
 
-Description:    <%= @task.description %><br>
-Status:    <%= @task.status %><br>
-Deadline:    <%= @task.deadline.strftime("%d %b, %Y") %><br>
-User Name:    <%= @task.user.nickname %><br>
-Pinned to top:    <%= @task.pinned %><br>
-Completed by:    <%= @task.completer %><br>
-Claimed by:    <% if @task.claimer != nil %><%= User.find(@task.claimer).nickname %><% end %><br>
-<br>
+<% if @task.completer != nil %> <strong>Completed by:</strong> <%= User.find(@task.completer).nickname %><% end %><br>
+<% if @task.claimer != nil %> <strong>Claimed by:</strong> <%= User.find(@task.claimer).nickname %><% end %><br>
+
+<div class="card-body">
+    <div class="row">
+        <div >
+        <%= button_to "Edit", edit_task_path, method: :get, class: "btn btn-outline-primary mr-2" %>
+        </div>
+        <div>
+        <%= button_to "Delete Task", task_path, method: :delete, class: "btn btn-danger" %>
+        </div>
+    </div>
+</div>
+
 <br>
 
-<div class="container-fluid">
-<span class="border border-secondary">
+<div class="container-fluid bg-primary; border border-secondary; rounded" style="padding-top: 12px; padding-bottom: 10px;" >
     <h4>Comments:</h4>
-    <% @task.comments.each do |comment|%><br>
-    <%= "#{comment.content} - #{comment.user.nickname}" %><br>
-    <% end %>
+    <div class="container-fluid bg-white; border border-secondary; rounded" style="padding-bottom: 20px;"  >
+        <% @task.comments.each do |comment|%><br>
+        <div class="container bg-secondary; rounded;" >
+        <%= "#{comment.content} - #{comment.user.nickname}"%><br>
+        </div>
+        <% end %>
+    </div>
     <br>
     <br>
-
     <%= render 'comments/form' %>
-</span>
+
+
 </div>

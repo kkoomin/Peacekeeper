@@ -1,4 +1,28 @@
+<% if @user.image.attached? %>
+    <%= image_tag(@user.image, class: 'rounded-circle center-fit') %> 
+<% else %>
+    <%= image_tag "crazy-unicorn.jpg", height: '200' %>
+<% end %>
+<br>
+<br>
+<h3> <%=@user.nickname %></h3>
+<br>
 
+
+<strong>Email:</strong> <%= @user.email %><br>
+<strong>Nickname:</strong> <%= @user.nickname %><br>
+
+
+<div class="card-body">
+    <div class="row">
+        <div >
+        <%= button_to "Edit", edit_user_path, method: :get, class: "btn btn-outline-primary mr-2" %>
+        </div>
+        <div>
+        <%= button_to "Delete your account", user_path, method: :delete, class: "btn btn-danger" %>
+        </div>
+    </div>
+</div>
 
 
 

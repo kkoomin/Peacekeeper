@@ -5,9 +5,9 @@
   <div class="form-group">
     <div class="form-group">
     <%= hidden_field_tag 'comment[task_id]', @task.id %> 
-    <%= label_tag "Write you comment here:", nil, class: 'form-label'  %>
+    <%= label_tag "Write your comment here:", nil, class: 'form-label'  %>
     <%= text_area_tag 'comment[content]', nil, class: 'form-control' %><br> 
-    <%= submit_tag "Create", class: "btn btn-primary"  %>
+    <%= submit_tag "Create", class: "btn btn-primary"%>
     </div>
     </div>
 <% end %>
