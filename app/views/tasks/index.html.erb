@@ -5,16 +5,14 @@
         <% status_button =  %>
         <div class="card">
             <div class="card-body">
+            <h5 class="card-title"><%= task.name %></h5>
                 <%= link_to task.name, task_path(task) %>
                 <%# task.status_description %>
-                <span style="display: inline;">
-                
-                <div class="inner"><%= button_to "Claim", toggle_claim_path(task), class: "btn btn-light" %></div>
-                <div class="inner"><%= button_to task.status_description_button_text, toggle_status_path(task), class: "btn btn-light"  %></div>
-                <div class="inner"><%= image_tag task.status_description_button_image, class: 'svg square' %></a></div>
-                
+               
+                <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post %>
 
-                </span>
+                <div class="inner"><%= button_to "Claimed", toggle_claim_get_path(task), class: "btn btn-light" %></div>
+              
             </div>
         </div>
         
@@ -22,7 +20,7 @@
     <% end %>
 
 
-<button class="btn"><i class="fa fa-home"></i></button>
+\
 
 
 <%= button_to "Create New Task", new_task_path, method: "get", class: "btn btn-primary"%>
