@@ -3,25 +3,31 @@
 
     <% @tasks.each do |task| %>
         <% status_button =  %>
-        <div class="card">
-            <div class="card-body">
-            <h5 class="card-title"><%= task.name %></h5>
-                <%= link_to task.name, task_path(task) %>
-                <%# task.status_description %>
-               
-                <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post %>
-
-                <div class="inner"><%= button_to "Claimed", toggle_claim_get_path(task), class: "btn btn-light" %></div>
-              
+            <div class="card mb-3 bg-light";>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm">
+                        <h5 class="card-title"><%= task.name %></h5>
+                        </div>
+                  
+                        <div class="col-sm">
+                        <%= button_to "Open task", task_path(task), class: "btn btn-light" %>
+                        </div>
+                    
+                        <div class="col-sm">
+                        <%= button_to "Claimed", toggle_claim_path(task), class: "btn btn-light" %>
+                        </div>
+                    
+                        <div class="col-sm">
+                        <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post %>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+    
         
        
     <% end %>
-
-
-\
-
 
 <%= button_to "Create New Task", new_task_path, method: "get", class: "btn btn-primary"%>
 
