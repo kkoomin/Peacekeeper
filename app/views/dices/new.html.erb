@@ -1,26 +1,54 @@
-<h1>Enter the name</h1>
+<div class="container main-content post-index">
 
-<% if @dice.players.count < @dice.num_of_players %>
-    <%= form_tag ({controller: 'players', action: 'create', method: 'post'}) do %>
-        <%= hidden_field_tag 'player[dice_id]', @dice.id %>
-        <%= text_field_tag 'player[name]' %><br>
-        <%= submit_tag "Next" %>
+    <div class="card mb-3" style="max-width: 800px;">
+        <div class="card-main-image">
+                <%= image_tag "dice_main.png", class: "card-img-top", style: 'height: 50%; width: 50%;' %>
+        </div>
+        <div class="card-body">
+            <% if @dice.players.count < @dice.num_of_players %>
+            <h5 class="card-title">Enter the name</h5>
+            <p class="card-text">                    
+                <%= form_tag ({controller: 'players', action: 'create', method: 'post'}) do %>
+                    <div class="form-group">
+                        <%= hidden_field_tag 'player[dice_id]', @dice.id %>
+                        <%= text_field_tag 'player[name]' %><br>
+                    </div>
+
+                    <%= submit_tag "Next", class: "btn btn-info"%>
+                <% end %>
+            </p>   
+            <p class="card-text"><small class="text-muted">Hard to decide something? I can help!</small></p>
+        </div>
     <% end %>
-<% end %>
+    </div>
 
-
-<% if @dice.players.count > 0 && @dice.players.count != @dice.num_of_players%>
-    <h3>We are wating..</h3>
-    <% @dice.players.each do |p| %>
-        <li><%= p.name %></li>
+    <% if @dice.players.count > 0 && @dice.players.count != @dice.num_of_players%>
+    <div class="card mb-3" style="max-width: 800px;">
+            <div class="card-header">
+              Waiting List
+            </div>
+            <ul class="list-group list-group-flush">
+                <% @dice.players.each do |p| %>
+                <li class="list-group-item"><%= p.name %></li>
+                <% end %>
+            </ul>
+    </div>
     <% end %>
-<% end %>
 
-<% if @dice.players.count == @dice.num_of_players %>
-    <h3> Ready to roll the dice! </h3>
-    <% @dice.players.each do |p| %>
-        <li><%= p.name %></li>
+    <% if @dice.players.count == @dice.num_of_players %>
+    <div class="card mb-3" style="max-width: 800px;">
+            <div class="card-header">
+                Ready to roll the dice!            
+            </div>
+            <ul class="list-group list-group-flush">
+                <% @dice.players.each do |p| %>
+                <li class="list-group-item"><%= p.name %></li>
+                <% end %>
+            </ul>
+    </div>
+    <%= button_to "Roll the dice", roll_dice_path, class: "btn btn-danger" %>
+    <br>
     <% end %>
-<%= button_to "Roll the dice", roll_dice_path %>
-<% end %>
 
+
+</div>

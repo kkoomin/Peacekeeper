@@ -5,6 +5,7 @@
 @import 'sessions';
 @import 'posts';
 @import "tasks";
+@import 'dice';
 
 html, body {
     height: 100%;
@@ -30,10 +31,6 @@ body {
 .menu {
     background-color:#311B92;
 
-}
-
-.bg-light {
-    background-color: #EDE7F6!important;
 }
 
 .navbar-brand {

@@ -1,12 +1,25 @@
-<%= image_tag "dice-0.png" %> <br>
-<h1>Dice Game</h1>
+<div class="container main-content post-index">
+    <div class="card mb-3" style="max-width: 800px;">
+        <div class="card-main-image">
+            <%= image_tag "dice_main.png", class: "card-img-top", style: 'height: 50%; width: 50%;' %>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Dice Game</h5>
+            <p class="card-text">                    
+                <%= form_for @dice, url: dice_path, method: :post do |f| %>
+                <div class="form-group">
+                    <label for="dice-title">What's this round for?</label></label>
+                    <%= f.text_field :title, class: "form-control", id: "dice-title" %>
+                </div>
+                <div class="form-group">
+                    <label for="dice-num-of-players">Choose the number of players or options</label>
+                    <%= f.number_field :num_of_players, class: "form-control", id: "dice-num-of-players" %>
+                </div>
 
-<hr>
-<%= form_tag ({controller: "dices", action: "create_new", method: "post"}) do %>
-    <%= label_tag "What's this round for?" %><br>
-    <%= text_field_tag "dice[title]" %><br>
-    <%= label_tag "Enter the number of players" %><br>
-    <%= number_field_tag "dice[num_of_players]" %><br>
-    <%= submit_tag "Next", class: "btn btn-primary" %>
-<% end %>
-
+                <%= f.submit "Next", class: "btn btn-info" %>
+                <% end %>
+            </p>   
+            <p class="card-text"><small class="text-muted">Hard to decide something? I can help!</small></p>
+        </div>
+    </div>
+</div>
