@@ -4,3 +4,10 @@
           <p class="lead">Today is <%= Time.now.strftime("%d %B, %Y") %></p>
         </div>
 </div>
+
+
+    <div class="alert alert-primary" role="alert">
+      Check <%= pluralize(@tasks.select {|task| task.status == false}.count, "Task") %>!
+    </div>
+
+

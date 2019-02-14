@@ -4,7 +4,7 @@
             <%= image_tag "dice_main.png", class: "card-img-top", style: 'height: 50%; width: 50%;' %>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Dice Game</h5>
+            <h3 class="card-title">Dice Game</h3>
             <p class="card-text">                    
                 <%= form_for @dice, url: dice_path, method: :post do |f| %>
                 <div class="form-group">
@@ -19,7 +19,7 @@
                 <%= f.submit "Next", class: "btn btn-info" %>
                 <% end %>
             </p>   
-            <p class="card-text"><small class="text-muted">Hard to decide something? I can help!</small></p>
+            <p class="card-text"><small class="text-muted">Hard to decide something? Double dice can help! Roll the dice to make your choice!</small></p>
         </div>
     </div>
 </div>

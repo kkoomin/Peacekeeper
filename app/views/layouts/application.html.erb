@@ -18,10 +18,13 @@
   <div class="container-fluid fullscreen">
     <div class="row">
       <div class="col-md-2 menu">
-          <a class="navbar-brand" href="/">Peacekeeper</a>
-
-
         <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "Peacekeeper", home_path, class: "nav-link-title" %>
+          </li>
+          <li class="nav-item">
+            <br>
+          </li>
           <li class="nav-item">
             <%= link_to "Tasks", tasks_path, class: "nav-link" %>
           </li>
@@ -40,8 +43,8 @@
 
       <div class="col-md-10">
 
-        <nav class="navbar navbar-current-user bg-light">
-            <a>Hello, <%= current_user.nickname %>!</a>
+        <nav class="navbar navbar-nav navbar-right bg-light">
+            Hello, <%= current_user.nickname %>!
         </nav>
       
         <div class="content">

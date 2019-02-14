@@ -6,9 +6,9 @@
             <div class="card-deck">
                 <% @dice.players.each do |p| %>
                 <div class="card dice-result" style="width: 18rem;">
-                    <%= image_tag "dice-#{p.result}.png", class: "card-img", style: "opacity: 0.5;"%>            
-                    
+
                     <div class="card-body">
+                        <h3><%= p.result %></h3>
                         <h4 class="card-text"><%= p.name %></h4>
                     </div>
                 </div>
@@ -18,8 +18,6 @@
 
         <div class="card-footer"><%= button_to "Replay?", replay_path, method: 'delete', class: "btn btn-light" %></div>
     </div>
-
-    
             
 </div>
 
