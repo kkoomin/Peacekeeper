@@ -12,7 +12,6 @@
 
     </head>
 
-    
   <body>
   
   <% if logged_in? %>
@@ -39,20 +38,23 @@
 
       <div class="col-md-10">
 
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar bg-light">
             <a class="navbar-current-user">Hello, <%= current_user.nickname %>!</a>
         </nav>
       
         <div class="content">
-        <% if flash[:errors] %>
-          <% flash[:errors].each do |e| %>
-            <p style="color: red"> <%= e %> </p>
+          <% if flash[:errors] %>
+            <% flash[:errors].each do |e| %>
+              <p style="color: red"> <%= e %> </p>
+            <% end %>
           <% end %>
-        <% end %>
-       <%= yield %>
+          <%= yield %>
+        </div>
+        <!-- <nav class="navbar fixed-bottom bg-light"></nav> -->
+          
       </div>
-
     </div>
+    
   </div>
  
   <% else %>
@@ -67,6 +69,8 @@
 
   <% end %>
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.bundle.min.js" integrity="sha384-VoPFvGr9GxhDT3n8vqqZ46twP5lgex+raTCfICQy73NLhN7ZqSfCtfSn4mLA2EFA" crossorigin="anonymous"></script> -->
+
     </body>
+
   </html>
         

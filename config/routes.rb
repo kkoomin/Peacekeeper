@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/tasks/:id/toggle_status', to: "tasks#toggle_status", as: "toggle_status"
   post '/tasks/:id/toggle_claim', to: "tasks#toggle_claim", as: "toggle_claim"
   
-  root 'sessions#new'
+  root 'sessions#home'
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   post '/logout', to: "sessions#destroy"
