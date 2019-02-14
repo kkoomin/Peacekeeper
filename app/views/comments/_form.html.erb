@@ -1,6 +1,13 @@
+
+
 <%= form_tag ({controller: 'comments', action: 'create', method: 'post'}) do %>
-    <%= hidden_field_tag 'comment[task_id]', @task.id %><br> 
-    <%= label_tag "Write you comment here:" %>
-    <%= text_area_tag 'comment[content]' %><br> 
-    <%= submit_tag "Create" %>
+<form>
+  <div class="form-group">
+    <div class="form-group">
+    <%= hidden_field_tag 'comment[task_id]', @task.id %> 
+    <%= label_tag "Write you comment here:", nil, class: 'form-label'  %>
+    <%= text_area_tag 'comment[content]', nil, class: 'form-control' %><br> 
+    <%= submit_tag "Create", class: "btn btn-primary"  %>
+    </div>
+    </div>
 <% end %>

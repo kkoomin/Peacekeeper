@@ -9,13 +9,17 @@ Pinned to top:    <%= @task.pinned %><br>
 Completed by:    <%= @task.completer %><br>
 Claimed by:    <% if @task.claimer != nil %><%= User.find(@task.claimer).nickname %><% end %><br>
 <br>
-----------------------------
 <br>
 
-<% @task.comments.each do |comment|%><br>
-<%= "#{comment.content} - #{comment.user.nickname}" %><br>
-<% end %>
-<br>
-<br>
+<div class="container-fluid">
+<span class="border border-secondary">
+    <h4>Comments:</h4>
+    <% @task.comments.each do |comment|%><br>
+    <%= "#{comment.content} - #{comment.user.nickname}" %><br>
+    <% end %>
+    <br>
+    <br>
 
-<%= render 'comments/form' %>
+    <%= render 'comments/form' %>
+</span>
+</div>

@@ -1,17 +1,28 @@
 <%= form_for @task do |f| %>
-    <%= f.label "name" %>
-    <%= f.text_field :name %><br>
-    <%= f.label "description" %>
-    <%= f.text_area :description %><br>
-    <%= f.label "deadline" %> <br>
-    <%= f.date_select(:deadline, :order => [:day, :month, :year]) %><br>
-    <%= f.label "pinned" %><br>
-    <%= f.check_box :pinned %> <br>
-    <% if current_user.admin == true %>
-        <%= f.collection_select :claimer, @users, :id, :nickname %>
-    <% end %>
+<form>
+  <div class="form-group">
+    <div class="form-group">
+        <%= f.label "name" %>
+        <%= f.text_field :name, placeholder: "Name your task", class: "form-control"   %><br>
+    <div class="form-group">
+        <%= f.label "description" %>
+        <%= f.text_area :description, placeholder: "Describe your task", class: "form-control"  %><br>
+    </div>
+        <%= f.label "deadline" %> <br>
+        <%= f.date_select(:deadline, :order => [:day, :month, :year]) %><br>
+    </div>
+    <div class="form-inline">
+        <%= f.check_box :pinned, class: "form-check-input" %> <br>    
+        <%= f.label "pinned", class: "form-check-label"%><br>
+    </div>
+        <% if current_user.admin == true %>
+            <div class="dropdown-menu">
+            <%= f.collection_select :claimer, @users, :id, :nickname %>
+            </div>
+        <% end %>
+    </div>
     
-    <%= f.submit "Create" %>
+    <%= f.submit "Create", class: "btn btn-success"%>
 <% end %>
 
 
