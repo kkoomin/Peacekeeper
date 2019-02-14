@@ -5,3 +5,16 @@
 .card-img-top {
     padding: 30px;
 }
+
+.card-img-overlay {
+    align-content: center;
+}
+
+.dice-result {
+    border: none;
+}
+
+.card-title {
+    margin: 0;
+    text-align: center;
+}
