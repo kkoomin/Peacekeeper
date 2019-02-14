@@ -1,13 +1,50 @@
 <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">Welcome To Peacekeeper</h1>
+          <h1 class="display-4">Peacekeeper</h1>
           <p class="lead">Today is <%= Time.now.strftime("%d %B, %Y") %></p>
         </div>
 </div>
 
-
-    <div class="alert alert-primary" role="alert">
-      Check <%= pluralize(@tasks.select {|task| task.status == false}.count, "Task") %>!
+<div class="container-home">
+    <div class="row">
+      <div class="col-8">
+        <div class="alert alert-primary" role="alert">
+            Check <%= pluralize(@tasks.select {|task| task.status == false}.count, "task") %>!
+            <hr>
+            <p>
+              <% @tasks.each do |task| %>
+                <% if task.status == false && task.claimer == nil%>
+                <i class="fas fa-check"></i> <%= task.name %> - created <%= time_ago_in_words(task.updated_at) + " ago" %><br>
+                <% end %>
+              <% end %>
+            </p>
+        </div>
+        <div class="alert alert-info" role="alert">
+          The Latest Post
+          <hr>
+          <%= @last_post.content %> from <%= @last_post.user.nickname %>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card">
+          <% if @most_contributor_id %>
+          <div class="card-header home-contributor">Top Completer</div>
+          <%= image_tag(@user.image, height: '200', class: 'card-img-top') %> 
+          <div class="card-body home-contributor-body">
+              <h5 class="card-title">🥇 <%= @most_contributor.nickname %> 🥇</h5>
+              <br>
+              <p>Complete the tasks <%= @contribute_times %> times!</p>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </div>
+  </div>
+
+
+
+
+
+
 
 

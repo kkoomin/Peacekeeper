@@ -2,11 +2,17 @@ class SessionsController < ApplicationController
 
     def home
         @tasks = Task.all
+        @posts = Post.all
+        @last_post = @posts.sort_by{|p| p.updated_at }.last
+        @users = User.all
+        @most_contributor_id = @tasks.map{|t|t.completer}.max_by{ |i| @tasks.map{|t|t.completer}.count(i)}
+        @most_contributor = User.find(@most_contributor_id)
+        @contribute_times = @tasks.map{|t|t.completer}.count(@most_contributor_id)
     end
 
     def new
         if logged_in?
-            redirect_to tasks_path
+            redirect_to home_path
         end
     end
 
@@ -21,7 +27,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :user_id
-        #or "session[:user_id] = nil"
+        #or "session[:user_id]   = nil"
         redirect_to login_path
     end
 
