@@ -11,7 +11,7 @@ class Task < ApplicationRecord
     end
 
     def status_description_button_image
-        self.status == true ? 'si-glyph-checked.svg' : 'si-glyph-button-plus.svg'
+        self.status == true ? '<i class="far fa-check-square"></i>'.html_safe : '<i class="far fa-square"></i>'.html_safe
     end
 end
 
