@@ -1,31 +1,29 @@
 
-
-
-    <% @tasks.each do |task| %>
-        <% status_button =  %>
-            <div class="card mb-3 bg-light";>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm ">
-                        <h5 class="card-title-left" style="margin-top: .5rem"><%= task.name %></h5>
-                        </div>
-                  
-                        <div class="col-sm">
-                        <%= button_to "Open task", task_path(task), class: "btn btn-light" %>
-                        </div>
-                    
-                        <div class="col-sm">
-                        <%= button_to "Claim", toggle_claim_path(task), class: "btn btn-light" %>
-                        </div>
-                    
-                        <div class="col-sm">
-                            <div style="margin-top: .5rem">
-                            <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post, class: "align-right"%>
-                            </div>
+<% @tasks.each do |task| %>
+    <% status_button =  %>
+        <div class="card mb-3 bg-light";>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm ">
+                    <h5 class="card-title-left" style="margin-top: .5rem"><%= task.name %></h5>
+                    </div>
+                
+                    <div class="col-sm">
+                    <%= button_to "Open task", task_path(task), class: "btn btn-light", method: :get%>
+                    </div>
+                
+                    <div class="col-sm">
+                    <%= button_to "Claim", toggle_claim_path(task), class: "btn btn-light" %>
+                    </div>
+                
+                    <div class="col-sm">
+                        <div style="margin-top: .5rem">
+                        <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post, class: "align-right"%>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     
         
     

@@ -50,3 +50,9 @@
 .copy {
     color: white;
 }
+
+.jumbotron {
+    background-image: url("home_background.jpg");
+    background-size: cover;
+    background-position: center;
+}
