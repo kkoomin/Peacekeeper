@@ -6,6 +6,7 @@
 @import 'posts';
 @import "tasks";
 @import 'dice';
+@import 'users';
 
 html, body {
     height: 100%;
@@ -24,6 +25,10 @@ body {
     overflow: auto;
     background: white; /* Just to visualize the extent */
     
+}
+
+h1 {
+    color: #311B92;
 }
 .row {
     height: 100%;
@@ -75,9 +80,35 @@ a:hover {
     align-content: center;
     width: 100%;
     // max-width: 800px;
-    padding: 50px;
+    padding-top: 30px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
     margin: auto;
 }
+
+.new-account-content {
+    align-content: center;
+    width: 100%;
+    // max-width: 800px;
+    padding-top: 10%;
+    padding-left: 10%;
+    padding-bottom: 10%;
+    padding-right: 10%;
+    margin: auto;
+
+}
+
+.new-account-form {
+    align-content: center;
+    width: 50%;
+    min-width: 600px;
+    padding: 15px;
+    border: 2px solid #d9d9d9;
+    border-radius: 5px;
+    background-color: #ffffffcb;
+}
+
 
 .main-content {
     align-content: center;
