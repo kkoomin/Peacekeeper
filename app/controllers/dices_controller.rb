@@ -22,7 +22,7 @@ class DicesController < ApplicationController
             redirect_to enter_name_path
         end
         @dice.players.each do |p|
-            p.result = (1..6).to_a.shuffle.first
+            p.result = (1..12).to_a.shuffle.first
             p.save
         end
         redirect_to result_path(@dice)

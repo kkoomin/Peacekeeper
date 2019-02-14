@@ -15,6 +15,31 @@
   <body>
   
   <% if logged_in? %>
+  <div class="container-fluid fullscreen">
+    <div class="row">
+      <div class="col-md-2 menu">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <%= link_to "Peacekeeper", home_path, class: "nav-link-title" %>
+          </li>
+          <li class="nav-item">
+            <br>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Tasks", tasks_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Posts", posts_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Game", index_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Me", user_path(current_user.id), class: "nav-link"%>
+          </li>
+        </ul>
+      </div>
+
 
   <div class="container-fluid fullscreen">
  

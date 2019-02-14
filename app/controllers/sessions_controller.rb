@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+    def home
+        @tasks = Task.all
+    end
+
     def new
         if logged_in?
             redirect_to tasks_path
@@ -11,7 +15,7 @@ class SessionsController < ApplicationController
         @user = @user.try(:authenticate, params[:user][:password])
         return redirect_to login_path unless @user
         session[:user_id] = @user.id
-        redirect_to tasks_path
+        redirect_to home_path
         
     end
 
