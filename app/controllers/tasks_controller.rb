@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :find_task, only: [:show, :edit, :update, :toggle_status, :toggle_claim, :destroy]
-    before_action :authorized? 
+    #before_action :authorized? 
 
     def index
         @tasks = Task.all
@@ -16,13 +16,9 @@ class TasksController < ApplicationController
 
     def create
         @task = Task.create(task_params)
-       # if @task.valid?
             @task.user_id = current_user.id
             @task.save
             redirect_to task_path(@task)
-        #else
-         #   render :new
-       # end
     end
     
     def edit
@@ -34,7 +30,7 @@ class TasksController < ApplicationController
         #if @task.valid? 
             redirect_to task_path(@task)
        # else
-            render :edit 
+           # render :edit 
        # end
     end
 

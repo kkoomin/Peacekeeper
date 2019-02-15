@@ -18,12 +18,12 @@
         <% if current_user.admin %>
             <div class="form-dropdown">
             <%= f.label "Assign Task:" %> <br>
-            <%= f.collection_select :claimer, @users, :id, :nickname %>
+            <%= f.collection_select :claimer, @users, :id, :nickname, :selected => current_user.id %>
             </div>
         <% end %>
     </div>
-    
-    <%= f.submit "Create", class: "btn btn-success"%>
+
+    <%= f.submit "Submit", class: "btn btn-success"%>
 <% end %>
 
 

@@ -2,6 +2,7 @@ class Task < ApplicationRecord
     has_many :comments
     belongs_to :user
      
+    #validates :name, presence: true
 
 
     def task_completer
@@ -18,6 +19,10 @@ class Task < ApplicationRecord
 
     def status_description_button_image
         self.status == true ? '<i class="far fa-check-square"></i>'.html_safe : '<i class="far fa-square"></i>'.html_safe
+    end
+
+    def status_pinned_button_image
+        self.status == true ? '<i class="far fa-circle-o"></i>'.html_safe : '<i class="far fa-map-pin"></i>'.html_safe
     end
 end
 

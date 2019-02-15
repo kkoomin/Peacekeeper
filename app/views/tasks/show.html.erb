@@ -4,10 +4,12 @@
 <h1> <%= @task.name %> </h1>
 
 <strong>Description:</strong>  <%= @task.description %><br>
-<strong>Status:</strong>    <%= @task.status %><br>
-<strong>Deadline:</strong>    <%= @task.deadline.strftime("%d %b, %Y") %><br>
-<strong>User Name:</strong>    <%= @task.user.nickname %><br>
-<strong>Pinned to top:</strong>    <%= @task.pinned %><br>
+<% if @task.deadline < Time.now %>
+    <span style="color: red;"><strong>Deadline: </strong><%= @task.deadline.strftime("%d %b, %Y") %></span><br>
+<% else %>
+    <strong>Deadline:</strong><%= @task.deadline.strftime("%d %b, %Y") %><br>
+<% end %>
+<strong>Created by:</strong> <%= @task.user.nickname %><br>
 
 <% if @task.completer != nil %> <strong>Completed by:</strong> <%= User.find(@task.completer).nickname %><% end %><br>
 <% if @task.claimer != nil %> <strong>Claimed by:</strong> <%= User.find(@task.claimer).nickname %><% end %><br>
