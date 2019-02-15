@@ -6,29 +6,34 @@
         <% end %>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-6 ">
+                    <div class="col-5 ">
                     <%= button_to task.name, task_path(task), class: "btn btn-light btn-lg", method: :get%>
                     </div>
                 
-                    <div class="col-1" style="margin-top: .4rem">
+                    <div class="col-2" style="margin-top: .4rem">
                     <%= button_to "Claim", toggle_claim_path(task), class: "btn btn-outline-secondary" %>
                     </div>
 
-                    <div class="col-4" style="margin-top: .8rem">
+                    <div class="col-3" style="margin-top: .8rem">
                     <% if task.claimer %>
                         Claimed by: <%= User.find(task.claimer).nickname %>
                     <% else %>
                         Up for grabs 
                     <% end %>
                     </div>
+
+                    <div class="col-1">
+                        <div style="margin-top: .8rem">
+                             <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post, class: "align-right"%>
+                        </div>
+                    </div>
             
                     <div class="col-1">
                         <div style="margin-top: .8rem">
-                        <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post, class: "align-right"%>
-                        <span>  &nbsp;&nbsp; &nbsp;</span>
                         <%= link_to task.status_pinned_button_image, toggle_pinned_path(task), method: :post, class: "align-right"%>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
