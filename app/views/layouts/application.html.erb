@@ -40,9 +40,11 @@
         </div>
       <div class="col-md-10">
 
-        <nav class="navbar navbar-current-user bg-light">
-            <a>Hello, <%= current_user.nickname %>!</a>
+        <nav class="navbar bg-light" style="justify-content: right;">
             <%= button_to "Logout", logout_path, method: :post, class: "btn btn-light" %>
+            <h2 style="margin-top: 8px; margin-left: 4px"><%= link_to '<i class="far fa-user-circle"></i>'.html_safe, user_path(current_user.id), style: "color: #212529"%></h2>
+            
+            
         </nav>
       
         <div class="content">

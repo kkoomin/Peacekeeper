@@ -1,4 +1,3 @@
-
 <% @tasks.each do |task| %>
         <% if task.pinned %>
             <div class="card mb-3 bg-light border-danger";>
@@ -39,5 +38,4 @@
     <% end %>
 
 <%= button_to "Create New Task", new_task_path, method: "get", class: "btn btn-primary"%>
-
 
