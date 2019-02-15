@@ -18,7 +18,7 @@
         <% if current_user.admin %>
             <div class="form-dropdown">
             <%= f.label "Assign Task:" %> <br>
-            <%= f.collection_select :claimer, @users, :id, :nickname, :selected => current_user.id %>
+            <%= f.collection_select :claimer, @users, :id, :nickname %>
             </div>
         <% end %>
     </div>
