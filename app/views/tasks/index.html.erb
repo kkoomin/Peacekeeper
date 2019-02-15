@@ -1,19 +1,21 @@
 
 <% @tasks.each do |task| %>
-    <% status_button =  %>
-        <div class="card mb-3 bg-light";>
+        <% if task.pinned %>
+            <div class="card mb-3 border-danger";>
+        <% else %>
+            <div class="card mb-3 bg-light";>
+        <% end %>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-5 ">
+                    <div class="col-6 ">
                     <%= button_to task.name, task_path(task), class: "btn btn-light btn-lg", method: :get%>
                     </div>
                 
-                
-                    <div class="col-1">
+                    <div class="col-1" style="margin-top: .4rem">
                     <%= button_to "Claim", toggle_claim_path(task), class: "btn btn-outline-secondary" %>
                     </div>
 
-                    <div class="col-4" style="margin-top: .5rem">
+                    <div class="col-4" style="margin-top: .8rem">
                     <% if task.claimer %>
                         Claimed by: <%= User.find(task.claimer).nickname %>
                     <% else %>
@@ -22,8 +24,9 @@
                     </div>
             
                     <div class="col-1">
-                        <div style="margin-top: .5rem">
+                        <div style="margin-top: .8rem">
                         <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post, class: "align-right"%>
+                        <%= link_to task.status_description_button_image, toggle_pinned_path(task), method: :post, class: "align-right"%>
                         </div>
                     </div>
                 </div>
