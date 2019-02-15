@@ -1,7 +1,7 @@
 
 <% @tasks.each do |task| %>
         <% if task.pinned %>
-            <div class="card mb-3 border-danger";>
+            <div class="card mb-3 bg-light border-danger";>
         <% else %>
             <div class="card mb-3 bg-light";>
         <% end %>
@@ -26,7 +26,8 @@
                     <div class="col-1">
                         <div style="margin-top: .8rem">
                         <%= link_to task.status_description_button_image, toggle_status_path(task), method: :post, class: "align-right"%>
-                        <%= link_to task.status_description_button_image, toggle_pinned_path(task), method: :post, class: "align-right"%>
+                        <span>  &nbsp;&nbsp; &nbsp;</span>
+                        <%= link_to task.status_pinned_button_image, toggle_pinned_path(task), method: :post, class: "align-right"%>
                         </div>
                     </div>
                 </div>

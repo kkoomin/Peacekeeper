@@ -22,7 +22,7 @@ class Task < ApplicationRecord
     end
 
     def status_pinned_button_image
-        self.status == true ? '<i class="far fa-circle-o"></i>'.html_safe : '<i class="far fa-map-pin"></i>'.html_safe
+        self.pinned == true ? '<i style="color: red" class="fas fa-map-pin"></i>'.html_safe : '<i class="fas fa-map-pin"></i>'.html_safe
     end
 end
 
