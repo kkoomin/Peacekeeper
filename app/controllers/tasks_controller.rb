@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
-    before_action :find_task, only: [:show, :edit, :update, :toggle_status, :toggle_claim, :destroy]
-    #before_action :authorized? 
+    before_action :find_task, only: [:show, :edit, :update, :toggle_status, :toggle_claim, :toggle_pinned, :destroy]
+    before_action :authorized? 
 
     def index
         @tasks = Task.all
@@ -57,7 +57,7 @@ class TasksController < ApplicationController
 
     def toggle_pinned
         @task.toggle!(:pinned)
-        redirect_to task_path(@task)
+        redirect_to tasks_path
     end
 
     def destroy
