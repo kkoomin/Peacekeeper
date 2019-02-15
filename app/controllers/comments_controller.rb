@@ -26,7 +26,9 @@ class CommentsController < ApplicationController
 
     def destroy
         @comment.destroy
-        
+        @task = Task.find(@comment.task_id)
+        redirect_to task_path(@task)
+    
     end
 
     private

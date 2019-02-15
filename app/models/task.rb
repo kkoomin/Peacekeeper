@@ -1,7 +1,6 @@
 class Task < ApplicationRecord
     has_many :comments
     belongs_to :user
-     # validation
 
     def task_completer
         User.find(self.completer).nickname

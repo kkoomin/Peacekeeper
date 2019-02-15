@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
     def update
         @task.update(task_params)
-        if @user.valid? #&& @user.image.attached?
+        if @task.valid? #&& @user.image.attached?
             redirect_to task_path(@task)
         else
             render :edit 
