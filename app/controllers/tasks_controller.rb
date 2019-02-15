@@ -16,9 +16,13 @@ class TasksController < ApplicationController
 
     def create
         @task = Task.create(task_params)
-        @task.user_id = current_user.id
-        @task.save
-        redirect_to task_path(@task)
+       # if @task.valid?
+            @task.user_id = current_user.id
+            @task.save
+            redirect_to task_path(@task)
+        #else
+         #   render :new
+       # end
     end
     
     def edit
@@ -27,12 +31,11 @@ class TasksController < ApplicationController
 
     def update
         @task.update(task_params)
-        if @user.valid? #&& @user.image.attached?
+        #if @task.valid? 
             redirect_to task_path(@task)
-        else
+       # else
             render :edit 
-        end
-        
+       # end
     end
 
     def toggle_claim

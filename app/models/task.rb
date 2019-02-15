@@ -1,7 +1,9 @@
 class Task < ApplicationRecord
     has_many :comments
     belongs_to :user
-     # validation
+     
+    validates :name, presence: true
+
 
     def task_completer
         User.find(self.completer).nickname
@@ -21,6 +23,3 @@ class Task < ApplicationRecord
 end
 
 
-
-# <i class="glyphicon glyphicon-check"></i>
-# <i class="glyphicon glyphicon-uncheck"></i>

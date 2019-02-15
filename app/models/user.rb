@@ -5,6 +5,7 @@ class User < ApplicationRecord
     has_many :tasks
     has_many :comments
     has_many :posts
+    
     validates :email, uniqueness: true
     validates :email, presence: true
     validates_format_of :email, :with =>/\A[\w\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i, on: :create, :message => "must be formatted correctly."

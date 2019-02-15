@@ -4,15 +4,12 @@
         <div class="card mb-3 bg-light";>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-3 ">
-                    <h5 class="card-title-left" style="margin-top: .5rem"><%= task.name %></h5>
+                    <div class="col-5 ">
+                    <%= button_to task.name, task_path(task), class: "btn btn-light btn-lg", method: :get%>
                     </div>
                 
-                    <div class="col-2">
-                    <%= button_to "Open task", task_path(task), class: "btn btn-outline-secondary", method: :get%>
-                    </div>
                 
-                    <div class="col-2">
+                    <div class="col-1">
                     <%= button_to "Claim", toggle_claim_path(task), class: "btn btn-outline-secondary" %>
                     </div>
 

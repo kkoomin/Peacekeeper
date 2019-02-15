@@ -4,7 +4,7 @@
     <div class="login-main-text">
         <h1><i class="fas fa-dove"></i></h1>
         <h1>Peacekeeper</h1>
-        <p>Stop arguing and start collaborating. Organize and manage all your tasks across your household. </p>
+        <p>Stop arguing and start collaborating. Organize and manage all your household tasks. </p>
     </div>
 
     <%= form_for @user, url: login_path, method: :post do |f| %>
@@ -21,7 +21,7 @@
     <br>
 
     <div class="create_user_btn">
-        <%= button_to "Create New User", new_user_path, method: "get", class: "btn btn-outline-light btn-sm" %>
+        <%= button_to "Create New User", new_user_path, method: "get", class: "btn btn-light btn-sm" %>
     </div>
 
     <p class="mt-5 mb-3 copy">&copy; 2019</p>
