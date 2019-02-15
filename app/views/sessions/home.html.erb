@@ -8,6 +8,16 @@
 <div class="container-home">
     <div class="row">
       <div class="col-8">
+        <div class="alert alert-danger" role="alert">
+          <% if @user.comments != nil %>
+          You have <%= pluralize(@user.comments.where('created_at >= ?', 24.hours.ago).count, 'comment') %> today.
+          <hr>
+          <p>
+            <% @user.comments.each do |c| %>
+              <i class="fas fa-check"></i> <%= c.content %> - commented by <%= User.find(c.user_id).nickname %><br>
+            <% end %>
+          <% end %>
+        </div>
         <div class="alert alert-primary" role="alert">
             Check <%= pluralize(@tasks.select {|task| task.status == false}.count, "task") %>!
             <hr>

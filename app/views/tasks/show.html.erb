@@ -1,4 +1,4 @@
-<%= link_to "<- Back to tasks", tasks_path %>
+<a href ="/tasks"><i class="fas fa-arrow-left"></i>  Back to tasks</a>
 <br>
     <br>
 <h1> <%= @task.name %> </h1>
@@ -30,7 +30,10 @@
     <div class="container-fluid bg-white; border border-secondary; rounded" style="padding-bottom: 20px;"  >
         <% @task.comments.each do |comment|%><br>
         <div class="container bg-secondary; rounded;" >
-        <%= "#{comment.content} - #{comment.user.nickname}"%><br>
+            <%= "#{comment.content} - #{comment.user.nickname}" %>  
+            <% if comment.user_id == @user.id %>
+                <%= button_to "delete", comment, method: :delete, form: {style: 'display:inline-block;'}, class: 'btn btn-outline-danger btn-sm' %><br>
+            <% end %>
         </div>
         <% end %>
     </div>
