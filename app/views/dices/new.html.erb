@@ -2,11 +2,11 @@
 
     <div class="card mb-3 shadow-sm p-3 mb-5 bg-white rounded" style="max-width: 800px;">
         <div class="card-main-image">
-                <%= image_tag "dice_main.png", class: "card-img-top", style: 'height: 50%; width: 50%;' %>
+                <%= image_tag "dice_main.png", class: "card-img-top", style: 'width: 50%;' %>
         </div>
         <div class="card-body">
-            <% if @dice.players.count < @dice.num_of_players %>
-            <h5 class="card-title">Enter the name</h5>
+        <% if @dice.players.count < @dice.num_of_players %>
+            <h5 class="card-title">Enter player or option <%= "#{@dice.players.count + 1}" %></h5>
             <p class="card-text">                    
                 <%= form_tag ({controller: 'players', action: 'create', method: 'post'}) do %>
                     <div class="form-group">
