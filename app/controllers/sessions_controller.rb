@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     def home
         @tasks = Task.all
         @posts = Post.all
-        @last_post = @posts.sort_by{|p| p.updated_at }.last
+        @last_post = @posts.sort_by{|p| p.updated_at }.last if @posts
         @users = User.all
         @most_contributor_id = @tasks.map{|t|t.completer}.max_by{ |i| @tasks.map{|t|t.completer}.count(i)}
         @most_contributor = User.find(@most_contributor_id) if @most_contributor_id
