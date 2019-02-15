@@ -10,10 +10,11 @@
       <div class="col-8">
         <div class="alert alert-danger" role="alert">
           <% if @user.comments != nil %>
-          You have <%= pluralize(@user.comments.where('created_at >= ?', 24.hours.ago).count, 'comment') %> today.
+          You have 
+          <%= pluralize(@user.tasks.map{|t| t.comments.where('created_at >= ?', 24.hours.ago).count}.inject {|sum, x| sum + x}, 'comment') %> today.
           <hr>
           <p>
-            <% @user.comments.each do |c| %>
+            <% @user.tasks.map {|t| t.comments}.flatten.each do |c| %>
               <i class="fas fa-check"></i> <%= c.content %> - commented by <%= User.find(c.user_id).nickname %><br>
             <% end %>
           <% end %>
@@ -39,8 +40,13 @@
         <div class="card">
           <% if @most_contributor_id != nil %>
             <div class="card-header home-contributor">Top Completer</div>
-            <%= image_tag(@user.image, height: '200', class: 'card-img-top') %> 
+            <% if @most_contributor.image.attached? %>
+              <%= image_tag(@most_contributor.image, height: '300') %> 
+            <% else %>
+                <%= image_tag "crazy-unicorn.jpg", height: '300' %>
+            <% end %>
             <div class="card-body home-contributor-body">
+              <br>  
                 <h5 class="card-title">🥇 <%= @most_contributor.nickname %> 🥇</h5>
                 <br>
                 <p>Complete the tasks <%= @contribute_times %> times!</p>

@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resources :tasks
   post '/tasks/:id/toggle_status', to: "tasks#toggle_status", as: "toggle_status"
   post '/tasks/:id/toggle_claim', to: "tasks#toggle_claim", as: "toggle_claim"
+  post '/tasks/:id/toggle_pinned', to: "tasks#toggle_pinned", as: "toggle_pinned"
   get '/tasks/:id/toggle_status', to: "tasks#toggle_status", as: "toggle_status_get"
   get '/tasks/:id/toggle_claim', to: "tasks#toggle_claim", as: "toggle_claim_get"
+  get '/tasks/:id/toggle_pinned', to: "tasks#toggle_pinned", as: "toggle_pinned_get"
 
   
   

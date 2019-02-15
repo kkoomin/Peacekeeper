@@ -2,7 +2,6 @@ class Task < ApplicationRecord
     has_many :comments
     belongs_to :user
      
-    validates :name, presence: true
 
 
     def task_completer
