@@ -33,7 +33,9 @@
         <div class="alert alert-info" role="alert">
           The Latest Post
           <hr>
+          <% if @last_post %>
           <%= @last_post.content %> from <%= @last_post.user.nickname %>
+          <% end %>
         </div>
       </div>
       <div class="col-4">
