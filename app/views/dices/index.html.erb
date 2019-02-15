@@ -1,14 +1,14 @@
 <div class="container main-content post-index">
     <div class="card mb-3 shadow-sm p-3 mb-5 bg-white rounded" style="max-width: 800px;">
         <div class="card-main-image">
-            <%= image_tag "dice_main.png", class: "card-img-top", style: 'height: 50%; width: 50%;' %>
+            <%= image_tag "dice_main.png", class: "card-img-top", style: 'width: 50%;' %>
         </div>
         <div class="card-body">
             <h3 class="card-title">Dice Game</h3>
             <p class="card-text">                    
                 <%= form_for @dice, url: dice_path, method: :post do |f| %>
                 <div class="form-group">
-                    <label for="dice-title">What's this round for?</label></label>
+                    <label for="dice-title">What would you like this game to help you decide?</label></label>
                     <%= f.text_field :title, class: "form-control", id: "dice-title" %>
                 </div>
                 <div class="form-group">
